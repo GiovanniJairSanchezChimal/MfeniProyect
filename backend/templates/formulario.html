@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- HTML -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" href="{% static "css/formulario.css" %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1><br></h1>
+        <h1><br></h1>
+        <h1>Formulario</h1>
+        <h1><br></h1>
+        <h3>Contesta estas preguntas para generar tu canvas</h3>
+        <h1><br></h1>
+        <form method="POST" class="register-form" onsubmit="return validateForm()">
+          {% csrf_token %}
+          <div class="form-row">
+              <div class="form-col" style="width: auto">
+                  <label class="form-label" for="{{ form.name_e_p.id_for_label }}">{{ form.name_e_p.label }}</label>
+                  {{ form.name_e_p }}
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label class="form-label" for="{{ form.segmento_propuesta.id_for_label }}">{{ form.segmento_propuesta.label }}</label>
+              {{ form.segmento_propuesta }}
+            </div>
+            <div class="form-col">
+              <label class="form-label" for="{{ form.segmento.id_for_label }}">{{ form.segmento.label }}</label>
+              {{ form.segmento }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label class="form-label" for="{{ form.propuesta.id_for_label }}">{{ form.propuesta.label }}</label>
+              {{ form.propuesta }}
+            </div>
+            <div class="form-col">
+              <label class="form-label" for="{{ form.canales.id_for_label }}">{{ form.canales.label }}</label>
+              {{ form.canales }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label class="form-label" for="{{ form.relaciones.id_for_label }}">{{ form.relaciones.label }}</label>
+              {{ form.relaciones }}
+            </div>
+            <div class="form-col">
+              <label class="form-label" for="{{ form.recursos.id_for_label }}">{{ form.recursos.label }}</label>
+              {{ form.recursos }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label class="form-label" for="{{ form.actividades.id_for_label }}">{{ form.actividades.label }}</label>
+              {{ form.actividades }}
+            </div>
+            <div class="form-col">
+              <label class="form-label" for="{{ form.socios.id_for_label }}">{{ form.socios.label }}</label>
+              {{ form.socios }}
+            </div>
+          </div>
+          <button type="submit" class="submit-button">Continuar</button>
+        </form>
+
+        <script>
+        function validateForm() {
+          var formValid = true;
+          var answerFields = document.querySelectorAll('.register-form input[type="text"]');
+          for (var i = 0; i < answerFields.length; i++) {
+            if (answerFields[i].value === '') {
+              answerFields[i].classList.add('error');
+              formValid = false;
+            } else {
+              answerFields[i].classList.remove('error');
+            }
+          }
+          return formValid;
+        }
+        </script>
+
+    </body>
+</html>
+{% endblock %}
+

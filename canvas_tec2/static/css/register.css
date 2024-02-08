@@ -1,0 +1,32 @@
+body{
+    background-color: #09091e;
+    color: white;
+}
+.card.mx-auto{
+    background-color: rgba(43, 43, 87, 0.97);
+    color: white;
+}
+.card-body{
+    color: white;
+}
+.card-link{
+    color: white;
+}
+label.required {
+    color: red;
+}
+.card-link:hover{
+    color: #e5c60a;
+}
+.btn.btn-sm.btn-primary{
+    background-color: #e5c60a;
+    color: black;
+    border: 2px solid #e5c60a;
+}
+.btn.btn-sm.btn-primary:hover{
+    background-color: transparent;
+    color: #e5c60a;
+}
+h3{
+    text-align: center;
+}
