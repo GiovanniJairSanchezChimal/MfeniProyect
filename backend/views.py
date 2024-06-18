@@ -11,8 +11,6 @@ from fuzzywuzzy import fuzz
 from urllib.parse import urlencode
 from django.urls import reverse
 
-
-
 def about(request):
     return render(request, 'about.html')
 
